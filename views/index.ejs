@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
   <div id="main">
     <div id="side">
@@ -15,12 +17,18 @@
       <div class="fileicon">
         <h5>FolderName</h5>
         <div class="icons">
-          <i class="ri-file-add-fill"></i>
-          <i class="ri-folder-add-fill"></i>
+          <i id="filecreate" class="ri-file-add-fill"></i>
+          <i id="foldercreate" class="ri-folder-add-fill"></i>
           <i class="ri-refresh-fill"></i>
 
         </div>
       </div>
+      <form id="fileform" action="/filecreate">
+        <input type="text" placeholder="filename">
+      </form>
+      <form id="folderform" action="/foldercreate">
+        <input type="text" placeholder="foldername">
+      </form>
       <div class="files">
         <div class="file">
           index.html
@@ -31,5 +39,24 @@
       <small>nothing here</small>
     </div>
   </div>
+  <script>
+    function turnOffBoth(){
+      var allelems = [...document.querySelectorAll("form")];
+            allelems.forEach(function(elem){
+              elem.style.display = "none";     
+      })
+    }
+    var filecreateicon = document.querySelector("#filecreate")
+    filecreateicon.addEventListener("click", function () {
+      turnOffBoth();
+      document.querySelector("#fileform").style.display = "initial";
+    })
+    var folercreateicon = document.querySelector("#foldercreate")
+    folercreateicon.addEventListener("click", function () {
+      turnOffBoth();
+      document.querySelector("#folderform").style.display = "initial";
+    })
+  </script>
 </body>
+
 </html>

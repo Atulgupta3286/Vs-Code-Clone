@@ -24,12 +24,12 @@
         </div>
       </div>
 
-      <form id="fileform" action="/filecreate">
+      <form class="formcreation" id="fileform" action="/filecreate">
         <input name="filename" type="text" placeholder="File name">
       </form>
 
-      <form id="folderform" action="/foldercreate">
-        <input type="text" placeholder="Folder name">
+      <form class="formcreation" id="folderform" action="/foldercreate">
+        <input type="foldername" placeholder="Folder name">
       </form>
 
       <div class="files">
@@ -45,7 +45,7 @@
   </div>
   <script>
     function turnOffBoth() {
-      document.querySelectorAll("form").forEach(function (elem) {
+      document.querySelectorAll(".formcreation").forEach(function (elem) {
         elem.style.display = "none";
       })
     }

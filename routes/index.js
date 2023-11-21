@@ -4,7 +4,9 @@ var fs = require("fs");
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index');
+  fs.readdir("./uploads", function(err,files){
+    res.render("index", {files: files});
+  })
 });
 
 router.get('/filecreate', function(req, res) {
@@ -14,4 +16,10 @@ router.get('/filecreate', function(req, res) {
   });
 });
 
+router.get('/foldercreate', function(req, res) {
+  fs.mkdir(`./uploads/${req.query.foldername}`,function(err){
+    if(err) res.send(err);
+    else res.redirect("back");
+  });
+});
 module.exports = router;

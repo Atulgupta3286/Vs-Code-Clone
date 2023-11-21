@@ -36,9 +36,16 @@
       </form>
 
       <div class="files">
-          <% files.forEach(function(elem){ %>
-            <h5 class="file"><%= elem %></h5>
-         <% })%>
+        <% files.forEach(function(elem){ %>
+          <h5 class="file">
+            <% if(elem.isDirectory()){%>
+              <i class="ri-folder-3-fill"></i>
+              <% }else { %>
+                <i class="ri-file-text-line"></i>
+                <% } %>
+                  <%= elem.name %>
+          </h5>
+          <% })%>
       </div>
 
     </div>

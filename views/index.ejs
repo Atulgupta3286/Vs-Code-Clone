@@ -23,36 +23,37 @@
 
         </div>
       </div>
+
       <form id="fileform" action="/filecreate">
-        <input type="text" placeholder="filename">
+        <input name="filename" type="text" placeholder="File name">
       </form>
+
       <form id="folderform" action="/foldercreate">
-        <input type="text" placeholder="foldername">
+        <input type="text" placeholder="Folder name">
       </form>
+
       <div class="files">
         <div class="file">
           index.html
         </div>
       </div>
     </div>
+
     <div id="right">
       <small>nothing here</small>
     </div>
   </div>
   <script>
-    function turnOffBoth(){
-      var allelems = [...document.querySelectorAll("form")];
-            allelems.forEach(function(elem){
-              elem.style.display = "none";     
+    function turnOffBoth() {
+      document.querySelectorAll("form").forEach(function (elem) {
+        elem.style.display = "none";
       })
     }
-    var filecreateicon = document.querySelector("#filecreate")
-    filecreateicon.addEventListener("click", function () {
+    document.querySelector("#filecreate").addEventListener("click", function () {
       turnOffBoth();
       document.querySelector("#fileform").style.display = "initial";
     })
-    var folercreateicon = document.querySelector("#foldercreate")
-    folercreateicon.addEventListener("click", function () {
+    document.querySelector("#foldercreate").addEventListener("click", function () {
       turnOffBoth();
       document.querySelector("#folderform").style.display = "initial";
     })

@@ -43,7 +43,13 @@
               <% }else { %>
                 <i class="ri-file-text-line"></i>
                 <% } %>
+                <% if(elem.isDirectory()){%>
                   <%= elem.name %>
+                <% } else { %>  
+                  <a href="/file/<%= elem.name %>">
+                    <%= elem.name %>
+                  </a>
+               <% }%>
           </h5>
           <% })%>
       </div>
@@ -51,7 +57,17 @@
     </div>
 
     <div id="right">
-      <small>nothing here</small>
+      <div id="rightnav">
+        <div class="openedfile">
+          index.html
+          <i class="ri-close-circle-fill"></i>
+        </div>
+      </div>
+      <form action="" method="post">
+        <textarea></textarea>
+        <input id="buttonsave" type="submit" value="Save File">
+      </form>
+      <!-- <small>nothing here</small> -->
     </div>
 
   </div>

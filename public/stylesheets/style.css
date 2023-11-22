@@ -67,21 +67,75 @@ body {
 
 #right {
   font-size: 22px;
-  opacity: .2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 75%;
   height: 100%;
   background-color: #f3f3f3;
 }
 
-#side form {
-  display: none;
+#right #rightnav {
+  width: 100%;
+  padding: 10px;
+  /* background-color: rebeccapurple; */
+}
+
+#right .openedfile {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  width: fit-content;
+  background-color: #81a69c;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.openedfile i {
+  margin-left: 10px;
+}
+
+.openedfile i:hover {
+  color: #202725;
+  cursor: pointer;
+}
+
+#right form {
+  width: 100%;
+  height: calc(100% - 70px);
+}
+
+#right textarea {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 20px;
+  font-size: 20px;
+  /* font-family: "Consoals"; */
+  width: 100%;
+  height: 100%;
+}
+a{
+  color: #fff;
+  text-decoration: none;
+}
+
+#right #buttonsave {
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  padding: 8px 17px;
+  border: none;
+  outline: none;
+  background-color: #81a69c;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
 }
 
 .fileicon {
   margin-bottom: 10px;
+}
+
+#side form {
+  display: none;
 }
 
 #side form input {

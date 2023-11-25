@@ -9,6 +9,13 @@ router.get('/', function (req, res) {
   })
 });
 
+router.get('/file/:filename', function (req, res) {
+  fs.readdir("./uploads", { withFileTypes: true }, function (err, files) {
+    res.render("opened", { files: files, filename: req.params.filename});
+  })
+});
+
+
 router.get('/filecreate', function (req, res) {
   fs.writeFile(`./uploads/${req.query.filename}`, "", function (err) {
     if (err) res.send(err);

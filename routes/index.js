@@ -11,10 +11,17 @@ router.get('/', function (req, res) {
 
 router.get('/file/:filename', function (req, res) {
   fs.readdir("./uploads", { withFileTypes: true }, function (err, files) {
-    res.render("opened", { files: files, filename: req.params.filename});
+    fs.readFile(`./uploads/${req.params.filename}`, "utf8", function (err, data) {
+      res.render("opened", { files: files, filename: req.params.filename, filedata: data });
+    });
   })
 });
 
+router.post('/filechange/:filename', function (req, res) {
+  fs.writeFile(`./uploads/${req.params.filename}`, req.body.filedata, function(err){
+    res.redirect("back");
+  })
+});
 
 router.get('/filecreate', function (req, res) {
   fs.writeFile(`./uploads/${req.query.filename}`, "", function (err) {
